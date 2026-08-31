@@ -1,4 +1,4 @@
-# 依赖：
+# 依赖:
 #   pip install PyQt6 charset-normalizer pycryptodome
 import codecs
 import re
@@ -91,20 +91,20 @@ class LargeFileLoader(QObject):
                     if not self.send_chunk(text, file.tell()):
                         self.loading_finished.emit(
                             False,
-                            "用户取消了大文件读取。",
+                            "用户取消了大文件读取.",
                         )
                         return
                 if self.cancelled:
                     self.loading_finished.emit(
                         False,
-                        "用户取消了大文件读取。",
+                        "用户取消了大文件读取.",
                     )
                     return
                 final_text = decoder.decode(b"", final=True)
                 if not self.send_chunk(final_text, file.tell()):
                     self.loading_finished.emit(
                         False,
-                        "用户取消了大文件读取。",
+                        "用户取消了大文件读取.",
                     )
                     return
         except (OSError, LookupError) as error:
@@ -203,8 +203,8 @@ class RedNotepad(QMainWindow):
         self.wildcard_behavior.addItem("最长匹配", "longest")
         self.wildcard_behavior.setEnabled(False)
         self.case_sensitive = QCheckBox("区分大小写")
-        self.previous_button = QPushButton("上一个（Shift+F3）")
-        self.next_button = QPushButton("下一个（F3）")
+        self.previous_button = QPushButton("上一个(Shift+F3)")
+        self.next_button = QPushButton("下一个(F3)")
         self.replace_button = QPushButton("替换")
         self.replace_all_button = QPushButton("全部替换")
         self.close_search_button = QPushButton("关闭")
@@ -266,7 +266,7 @@ class RedNotepad(QMainWindow):
         self.loader_opacity_effect = QGraphicsOpacityEffect(self.loader_panel)
         self.loader_opacity_effect.setOpacity(0.0)
         self.loader_panel.setGraphicsEffect(self.loader_opacity_effect)
-        self.loading_label = QLabel("正在分块读取文件…")
+        self.loading_label = QLabel("正在分块读取文件...")
         self.loading_progress = QProgressBar()
         self.loading_progress.setRange(0, 1000)
         self.loading_progress.setValue(0)
@@ -402,16 +402,16 @@ class RedNotepad(QMainWindow):
             self,
             "赞助",
             "本软件采用AGPL3.0许可证发布\n\n"
-            "bc1qwfd0rrptzn4vyp2qj666crg8ky50px7e4yj5pg  赞助地址。\n"
+            "bc1qwfd0rrptzn4vyp2qj666crg8ky50px7e4yj5pg  赞助地址.\n"
             "0x2D92f9e4D8Ac7EFfA9cD7Cd5eccd364CAC7c201B    以太坊\n\n"
-            "如果你希望赞助作者。",
+            "如果你希望赞助作者.",
         )
     # ------------------------------------------------------------
     # 状态栏与字体大小
     # ------------------------------------------------------------
     def create_status_bar(self):
-        self.encoding_label = QLabel("编码：UTF-8", self)
-        self.file_size_label = QLabel("大小：0 B", self)
+        self.encoding_label = QLabel("编码:UTF-8", self)
+        self.file_size_label = QLabel("大小:0 B", self)
         self.encoding_label.hide()
         self.file_size_label.hide()
         self.document_stats_label = QLabel()
@@ -434,7 +434,7 @@ class RedNotepad(QMainWindow):
                 continue
             character_count += 1
         self.document_stats_label.setText(
-            f"行数：{line_count}  总字数：{character_count}"
+            f"行数:{line_count}  总字数:{character_count}"
         )
     def set_font_size(self, size):
         self.font_size = size
@@ -467,57 +467,58 @@ class RedNotepad(QMainWindow):
     def englishize_punctuation(self):
         text = self.editor.toPlainText()
         punctuation_map = str.maketrans({
-            "，": ",",
-            "。": ".",
-            "、": ",",
-            "；": ";",
-            "：": ":",
-            "？": "?",
-            "！": "!",
-            "“": '"',
-            "”": '"',
-            "‘": "'",
-            "’": "'",
-            "「": '"',
-            "」": '"',
-            "『": '"',
-            "』": '"',
-            "（": "(",
-            "）": ")",
-            "【": "[",
-            "】": "]",
-            "〔": "[",
-            "〕": "]",
-            "［": "[",
-            "］": "]",
-            "｛": "{",
-            "｝": "}",
-            "《": "<",
-            "》": ">",
-            "〈": "<",
-            "〉": ">",
-            "～": "~",
-            "·": ".",
-            "⋯": "...",
-            "…": "...",
-            "—": "-",
-            "﹐": ",",
-            "﹑": ",",
-            "﹒": ".",
-            "﹔": ";",
-            "﹕": ":",
-            "﹖": "?",
-            "﹗": "!",
-            "＂": '"',
-            "＇": "'",
+            ",": ",",
+            ".": ".",
+            ",": ",",
+            ";": ";",
+            ":": ":",
+            "?": "?",
+            "!": "!",
+            """: '"',
+            """: '"',
+            "'": "'",
+            "'": "'",
+            """: '"',
+            """: '"',
+            """: '"',
+            """: '"',
+            "(": "(",
+            ")": ")",
+            "[": "[",
+            "]": "]",
+            "[": "[",
+            "]": "]",
+            "[": "[",
+            "]": "]",
+            "{": "{",
+            "}": "}",
+            "<": "<",
+            ">": ">",
+            "<": "<",
+            ">": ">",
+            "~": "~",
+            ".": ".",
+            "...": "...",
+            "...": "...",
+            "-": "-",
+            ",": ",",
+            ",": ",",
+            ".": ".",
+            ";": ";",
+            ":": ":",
+            "?": "?",
+            "!": "!",
+            """: '"',
+            "'": "'",
         })
-        english_text = text.replace("……", "...")
-        english_text = english_text.replace("——", "--")
+        english_text = text.replace("...", "...")
+        english_text = english_text.replace("--", "--")
         english_text = english_text.translate(punctuation_map)
         english_text = re.sub(
-            r"[ \t\u3000\u00a0]*([,.;:!?\"'()\[\]{}<>~\-])[ \t\u3000\u00a0]*",
-            r"\1",
+            r"[ \t\u3000\u00a0]+$",
+            "",
             english_text,
+            flags=re.MULTILINE,
         )
         if english_text == text:
             return
@@ -748,7 +749,7 @@ class RedNotepad(QMainWindow):
     def open_file_path(self, file_path):
         path = Path(file_path).expanduser()
         if not path.is_file():
-            QMessageBox.warning(self, "打开失败", f"文件不存在或不是普通文件：\n{path}")
+            QMessageBox.warning(self, "打开失败", f"文件不存在或不是普通文件:\n{path}")
             return
         if self.path_is_sensitive_file(path):
             self.open_sensitive_file_path(path)
@@ -759,7 +760,7 @@ class RedNotepad(QMainWindow):
         except OSError as error:
             QMessageBox.critical(self, "打开失败", str(error))
             return
-        self.file_size_label.setText(f"大小：{self.format_file_size(file_size)}")
+        self.file_size_label.setText(f"大小:{self.format_file_size(file_size)}")
         if file_size >= self.LARGE_FILE_THRESHOLD:
             self.start_large_file_loading(path, file_size)
             return
@@ -773,17 +774,17 @@ class RedNotepad(QMainWindow):
         return magic == self.SENSITIVE_MAGIC
     def sensitive_password_message(self, action):
         return (
-            "敏感资料模式使用 AES-256-GCM 加密。\n\n"
-            "如果只是常规记事本使用，不建议启用此功能。\n"
+            "敏感资料模式使用 AES-256-GCM 加密.\n\n"
+            "如果只是常规记事本使用,不建议启用此功能.\n"
             "该加密格式不能保证与其他编辑器\n"
-            "或软件互相兼容；\n"
-            "上传到云端后，云端通常也无法\n"
-            "直接预览、索引或解析文本内容。\n"
-            "除非你确实需要存储敏感内容，\n"
-            "否则建议继续使用普通文本格式。\n\n"
-            "请妥善保管密码：密码不会写入文件，\n"
-            "忘记后无法恢复内容。\n\n"
-            f"{action}密码："
+            "或软件互相兼容;\n"
+            "上传到云端后,云端通常也无法\n"
+            "直接预览,索引或解析文本内容.\n"
+            "除非你确实需要存储敏感内容,\n"
+            "否则建议继续使用普通文本格式.\n\n"
+            "请妥善保管密码:密码不会写入文件,\n"
+            "忘记后无法恢复内容.\n\n"
+            f"{action}密码:"
         )
     def prompt_sensitive_password(self, action):
         password, accepted = QInputDialog.getText(
@@ -795,7 +796,7 @@ class RedNotepad(QMainWindow):
         if not accepted:
             return None
         if not password:
-            QMessageBox.warning(self, "密码不能为空", "敏感资料密码不能为空。")
+            QMessageBox.warning(self, "密码不能为空", "敏感资料密码不能为空.")
             return None
         return password
     def prompt_new_sensitive_password(self):
@@ -805,15 +806,15 @@ class RedNotepad(QMainWindow):
         confirmation, accepted = QInputDialog.getText(
             self,
             "确认敏感资料密码",
-            "请再次输入相同的密码。\n\n"
-            "密码不会保存到程序配置中。\n"
-            "忘记密码后无法恢复加密内容。",
+            "请再次输入相同的密码.\n\n"
+            "密码不会保存到程序配置中.\n"
+            "忘记密码后无法恢复加密内容.",
             QLineEdit.EchoMode.Password,
         )
         if not accepted:
             return None
         if password != confirmation:
-            QMessageBox.warning(self, "密码不一致", "两次输入的密码不一致。")
+            QMessageBox.warning(self, "密码不一致", "两次输入的密码不一致.")
             return None
         return password
     def derive_sensitive_key(self, password, salt, iterations):
@@ -855,14 +856,14 @@ class RedNotepad(QMainWindow):
             + self.SENSITIVE_TAG_SIZE
         )
         if len(file_data) < minimum_size:
-            raise ValueError("敏感资料文件格式不完整。")
+            raise ValueError("敏感资料文件格式不完整.")
         if not file_data.startswith(self.SENSITIVE_MAGIC):
-            raise ValueError("这不是 RedNotepad 敏感资料文件。")
+            raise ValueError("这不是 RedNotepad 敏感资料文件.")
         offset = len(self.SENSITIVE_MAGIC)
         iterations = int.from_bytes(file_data[offset:offset + 4], "big")
         offset += 4
         if iterations < 100000 or iterations > 2000000:
-            raise ValueError("敏感资料文件的密钥派生参数无效。")
+            raise ValueError("敏感资料文件的密钥派生参数无效.")
         salt_end = offset + self.SENSITIVE_SALT_SIZE
         salt = file_data[offset:salt_end]
         offset = salt_end
@@ -898,7 +899,7 @@ class RedNotepad(QMainWindow):
         self.open_sensitive_file_path(Path(file_path))
     def open_sensitive_file_path(self, path):
         if not path.is_file():
-            QMessageBox.warning(self, "打开失败", f"文件不存在或不是普通文件：\n{path}")
+            QMessageBox.warning(self, "打开失败", f"文件不存在或不是普通文件:\n{path}")
             return
         password = self.prompt_sensitive_password("请输入")
         if password is None:
@@ -913,7 +914,7 @@ class RedNotepad(QMainWindow):
             QMessageBox.critical(
                 self,
                 "无法解密",
-                "密码错误、文件已损坏，或者该文件不是受支持的敏感资料格式。",
+                "密码错误,文件已损坏,或者该文件不是受支持的敏感资料格式.",
             )
             return
         self.editor.setPlainText(text)
@@ -924,9 +925,9 @@ class RedNotepad(QMainWindow):
         self.sensitive_password = password
         self.current_file_is_sensitive = True
         self.editor.document().setModified(False)
-        self.encoding_label.setText("模式：AES-256-GCM")
+        self.encoding_label.setText("模式:AES-256-GCM")
         self.file_size_label.setText(
-            f"大小：{self.format_file_size(len(file_data))}"
+            f"大小:{self.format_file_size(len(file_data))}"
         )
         self.update_title()
     def reset_sensitive_state(self):
@@ -946,9 +947,9 @@ class RedNotepad(QMainWindow):
         self.current_encoding = encoding
         self.current_match_span = None
         self.editor.document().setModified(False)
-        self.encoding_label.setText(f"编码：{encoding.upper()}")
+        self.encoding_label.setText(f"编码:{encoding.upper()}")
         self.file_size_label.setText(
-            f"大小：{self.format_file_size(len(file_data))}"
+            f"大小:{self.format_file_size(len(file_data))}"
         )
         self.update_title()
     def start_large_file_loading(self, path, file_size):
@@ -966,10 +967,10 @@ class RedNotepad(QMainWindow):
         self.loading_progress.setValue(0)
         self.cancel_loading_button.setEnabled(True)
         self.loading_label.setText(
-            f"正在后台读取 {path.name}（{self.format_file_size(file_size)}）…"
+            f"正在后台读取 {path.name}({self.format_file_size(file_size)})..."
         )
-        self.encoding_label.setText("编码：检测中…")
-        self.file_size_label.setText(f"大小：{self.format_file_size(file_size)}")
+        self.encoding_label.setText("编码:检测中...")
+        self.file_size_label.setText(f"大小:{self.format_file_size(file_size)}")
         self.set_search_enabled(False)
         self.animate_loader_panel(True)
         self.loading_thread = QThread(self)
@@ -995,7 +996,7 @@ class RedNotepad(QMainWindow):
         self.loading_thread.start()
     def large_file_encoding_detected(self, encoding):
         self.current_encoding = encoding
-        self.encoding_label.setText(f"编码：{encoding.upper()}")
+        self.encoding_label.setText(f"编码:{encoding.upper()}")
     def receive_large_file_chunk(self, text, position):
         self.insert_loaded_text(text)
         progress = 1000
@@ -1006,7 +1007,7 @@ class RedNotepad(QMainWindow):
         self.animate_progress_to(progress)
         percent = progress / 10
         self.loading_label.setText(
-            f"正在后台分块读取 {self.loading_path.name}… {percent:.1f}%"
+            f"正在后台分块读取 {self.loading_path.name}... {percent:.1f}%"
         )
         if self.loading_worker is not None:
             self.loading_worker.allow_next_chunk()
@@ -1048,7 +1049,7 @@ class RedNotepad(QMainWindow):
         if self.loading_worker is None:
             return
         self.cancel_loading_button.setEnabled(False)
-        self.loading_label.setText("正在取消后台读取…")
+        self.loading_label.setText("正在取消后台读取...")
         self.loading_worker.cancel()
     def set_search_enabled(self, enabled):
         self.find_action.setEnabled(enabled)
@@ -1098,15 +1099,15 @@ class RedNotepad(QMainWindow):
         self.current_encoding = "utf-8"
         self.current_match_span = None
         self.editor.document().setModified(False)
-        self.encoding_label.setText("编码：UTF-8")
-        self.file_size_label.setText("大小：0 B")
+        self.encoding_label.setText("编码:UTF-8")
+        self.file_size_label.setText("大小:0 B")
         self.update_title()
     def save_file(self):
         if self.loading_worker is not None:
             QMessageBox.information(
                 self,
                 "文件仍在读取",
-                "请等待大文件读取完成后再保存。",
+                "请等待大文件读取完成后再保存.",
             )
             return False
         if self.sensitive_mode:
@@ -1122,7 +1123,7 @@ class RedNotepad(QMainWindow):
             answer = QMessageBox.question(
                 self,
                 "编码无法保存",
-                f"当前文件编码 {self.current_encoding.upper()} 无法保存部分字符。\n\n是否改用 UTF-8 保存？",
+                f"当前文件编码 {self.current_encoding.upper()} 无法保存部分字符.\n\n是否改用 UTF-8 保存?",
                 QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
             )
             if answer != QMessageBox.StandardButton.Yes:
@@ -1135,9 +1136,9 @@ class RedNotepad(QMainWindow):
             QMessageBox.critical(self, "保存失败", str(error))
             return False
         self.editor.document().setModified(False)
-        self.encoding_label.setText(f"编码：{self.current_encoding.upper()}")
+        self.encoding_label.setText(f"编码:{self.current_encoding.upper()}")
         self.file_size_label.setText(
-            f"大小：{self.format_file_size(len(file_data))}"
+            f"大小:{self.format_file_size(len(file_data))}"
         )
         self.update_title()
         return True
@@ -1159,7 +1160,7 @@ class RedNotepad(QMainWindow):
             QMessageBox.information(
                 self,
                 "文件仍在读取",
-                "请等待大文件读取完成后再进入敏感资料模式。",
+                "请等待大文件读取完成后再进入敏感资料模式.",
             )
             return
         password = self.prompt_new_sensitive_password()
@@ -1221,9 +1222,9 @@ class RedNotepad(QMainWindow):
         self.current_file_is_sensitive = True
         self.current_encoding = "utf-8"
         self.editor.document().setModified(False)
-        self.encoding_label.setText("模式：AES-256-GCM")
+        self.encoding_label.setText("模式:AES-256-GCM")
         self.file_size_label.setText(
-            f"大小：{self.format_file_size(len(file_data))}"
+            f"大小:{self.format_file_size(len(file_data))}"
         )
         self.update_title()
         return True
@@ -1233,7 +1234,7 @@ class RedNotepad(QMainWindow):
         answer = QMessageBox.question(
             self,
             "文件尚未保存",
-            "当前内容已经修改，是否保存？",
+            "当前内容已经修改,是否保存?",
             QMessageBox.StandardButton.Save
             | QMessageBox.StandardButton.Discard
             | QMessageBox.StandardButton.Cancel,
@@ -1299,7 +1300,7 @@ class RedNotepad(QMainWindow):
         try:
             return re.compile(expression, flags)
         except re.error as error:
-            self.result_label.setText(f"表达式错误：{error}")
+            self.result_label.setText(f"表达式错误:{error}")
             return None
     def wildcard_to_regex(self, wildcard):
         result = []
