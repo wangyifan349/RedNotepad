@@ -351,7 +351,7 @@ class RedNotepad(QMainWindow):
         self.remove_extra_line_breaks_action.triggered.connect(
             self.remove_extra_line_breaks
         )
-        self.englishize_action = QAction("英文化", self)
+        self.englishize_action = QAction("删除末尾空格", self)
         self.englishize_action.triggered.connect(self.englishize_punctuation)
         self.wrap_action = QAction("自动换行", self)
         self.wrap_action.setCheckable(True)
@@ -466,58 +466,10 @@ class RedNotepad(QMainWindow):
         self.editor.document().setModified(True)
     def englishize_punctuation(self):
         text = self.editor.toPlainText()
-        punctuation_map = str.maketrans({
-            ",": ",",
-            ".": ".",
-            ",": ",",
-            ";": ";",
-            ":": ":",
-            "?": "?",
-            "!": "!",
-            """: '"',
-            """: '"',
-            "'": "'",
-            "'": "'",
-            """: '"',
-            """: '"',
-            """: '"',
-            """: '"',
-            "(": "(",
-            ")": ")",
-            "[": "[",
-            "]": "]",
-            "[": "[",
-            "]": "]",
-            "[": "[",
-            "]": "]",
-            "{": "{",
-            "}": "}",
-            "<": "<",
-            ">": ">",
-            "<": "<",
-            ">": ">",
-            "~": "~",
-            ".": ".",
-            "...": "...",
-            "...": "...",
-            "-": "-",
-            ",": ",",
-            ",": ",",
-            ".": ".",
-            ";": ";",
-            ":": ":",
-            "?": "?",
-            "!": "!",
-            """: '"',
-            "'": "'",
-        })
-        english_text = text.replace("...", "...")
-        english_text = english_text.replace("--", "--")
-        english_text = english_text.translate(punctuation_map)
         english_text = re.sub(
             r"[ \t\u3000\u00a0]+$",
             "",
-            english_text,
+            text,
             flags=re.MULTILINE,
         )
         if english_text == text:
